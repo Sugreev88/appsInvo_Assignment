@@ -1,0 +1,48 @@
+# local host url #
+@baseurl=http://localhost:4000
+
+# render cloud url #
+# @baseurl=https://magiquint-backend.onrender.com
+
+# access token #
+@accessToken= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3M2NjZGJlNDQ2NjhkZmJmYTIwMTljMCIsImlhdCI6MTczMjAzODA3OCwiZXhwIjoxNzM0NjMwMDc4fQ.5-Kqiia4HnvIkFY55TIFXLxI-53zU9yql91aebZS1vA
+
+# refresh token #
+@refreshToken= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyZTU4NDA5MS05MzAxLTQ0ZjQtYjVlMS1mZGQyZjNjNGYyNDkiLCJpYXQiOjE3MzE0NzI1NDUsImV4cCI6MTczNDA2NDU0NX0.-XElapbxiVqlIdHe8w0VwteVDAXznmK9CphykTelZ6w
+
+# hello world #
+###
+GET {{baseurl}}
+### 1. Create User
+POST {{baseurl}}/create
+Content-Type: application/json
+
+{
+  "name": "John Does",
+  "email": "johndoe@exagmples.com",
+  "password": "password123",
+  "address": "123 Main Street",
+  "latitude": "37.7749",
+  "longitude": "-122.4194"
+}
+
+###
+
+### 2. Change User Status
+PUT {{baseurl}}/change-status
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+###
+
+### 3. Get Distance
+GET {{baseurl}}/distance?destination_latitude=42.7128&destination_longitude=-71.0060
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
+
+###
+
+### 4. Get User Listing
+GET {{baseurl}}/list?week_number=2,3,5&page=1&limit=3
+Authorization: Bearer {{accessToken}}
+Content-Type: application/json
